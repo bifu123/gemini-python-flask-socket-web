@@ -7,17 +7,19 @@
     font-family: "SanFrancisco";
     font-size: 1.25rem;
     margin: 0 auto 1rem;
-    max-width: 600px;
+    max-width: 100%;
     padding: 0.5rem 1.5rem;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .imessage p {
     border-radius: 1.15rem;
     line-height: 1.25;
-    max-width: 75%;
+    max-width: 100%;
     padding: 0.5rem 1.15rem;
     position: relative;
-    word-wrap: break-word;
+    /* word-wrap: break-word; */
+    overflow-wrap: break-word; /* 修改这里 */
 }
 
 .imessage p::before,
@@ -149,7 +151,7 @@ body {
 
 .container {
     margin: 0 auto;
-    max-width: 600px;
+    max-width: 800px;
     padding: 1rem;
 }
 
@@ -210,6 +212,7 @@ h2 {
     background-color: #fff;
     border: 1px solid #e5e5ea;
     border-radius: 0.5rem;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 #userInput {
@@ -239,10 +242,17 @@ h2 {
     border-color: black;
     border-radius: 30px;
     padding: 8px;
-    margin-right: -15px;
 }
 
 .title_font {
     color: rgb(246, 246, 248);
-    margin-left: 35px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+pre {
+    white-space: pre-wrap;
+}
+
+#tile_block {
+    margin-left: 20px;
 }

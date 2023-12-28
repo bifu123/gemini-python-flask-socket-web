@@ -38,7 +38,8 @@ document.addEventListener('DOMContentLoaded', function () {
         'url(../static/bg1.jpg)',
         'url(../static/bg2.jpg)',
         'url(../static/bg3.jpg)',
-        'url(../static/bg4.jpg)'
+        'url(../static/bg4.jpg)',
+        'url(../static/bg5.jpg)'
     ];
 
     // 随机选择一张背景图片
@@ -61,8 +62,8 @@ socket.on('message_from_server', function (data) {
     var messageContainer = document.getElementById('messageContainer');
     var messageElement = document.createElement('p');
     messageElement.className = 'from-them';
-    //messageElement.innerHTML = messageText;
-    messageElement.textContent = messageText;
+    messageElement.innerHTML = messageText;
+    //messageElement.textContent = messageText;
     messageContainer.appendChild(messageElement);
 });
 
@@ -72,6 +73,7 @@ function localUserMessage(userInput) {
     var messageContainer = document.getElementById('messageContainer');
     var userMessageElement = document.createElement('p');
     userMessageElement.className = 'from-me';
+    //userMessageElement.innerHTML = userInput;
     userMessageElement.textContent = userInput;
     messageContainer.appendChild(userMessageElement);
 }

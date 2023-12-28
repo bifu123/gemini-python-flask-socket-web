@@ -3,6 +3,7 @@ import sqlite3
 from datetime import datetime
 import google.generativeai as genai
 import json
+import re
 
 
 #从配置文件中获取GEMINI_API_KEY
@@ -76,4 +77,26 @@ def chat(content,messages=[]):
         messages.append({'role':'model','parts':[response.text]})
         return (messages,response.text)
     except Exception as e:
-        return ([],str(e)+'\r\n+出现错误，请联系QQ：415135222')
+        return ([],str(e)+'\r\n出现错误，请联系QQ：415135222')
+
+# 判断输出是否包含html源代码
+def contains_backticks_content(s):
+    return bool(re.search(r'```html.*?```', s, re.DOTALL))
+
+# 定义一个替换函数
+def replace_html_tags(match):
+    content = match.group()
+    # 将 < 替换为 &lt;，将 > 替换为 &gt;
+    content = content.replace('<', '&lt;').replace('>', '&gt;')
+    return content
+
+# 使用正则表达式替换
+def replace_match_html(html_code):
+    result = re.sub(r'```html.*?```', replace_html_tags, html_code, flags=re.DOTALL)
+    result = result.replace("<p>```html&lt;/p&gt;","<p>```html</p>")
+    result = result.replace("&lt;p&gt;```</p>","<br>```</p>")
+    result = "<pre><code>"+result+"</code></pre>"
+    return result
+
+
+
