@@ -1,7 +1,7 @@
-<h1> gemini-python-flask-sqlite</h1>
+<h1>gemini-python-flask-sqlite</h1>
 <h5>本示例使用sqlite存储不同用户的聊天记录，使gemini能够理解以前的聊天记录，实现上下文的语义分析。是用flask Socket实现的</h5>
 ==================================<br>
-python 10及以上(ubuntu 22.04及以上都内置好了），在终端里运行：<br>
+python 10及以上(ubuntu 22.04及以上都内置好了，有可能pip3会提示需要安装，那就安装），在终端里运行：<br>
 <code>
 sudo apt update<br>
 sudo apt install sqlite3 -y<br>
