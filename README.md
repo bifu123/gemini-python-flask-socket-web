@@ -1,5 +1,5 @@
 # gemini-python-flask-sqlite
-本示例使用sqlite存储不同用户的聊天记录，使gemini能够理解以前的聊天记录，实现上下文的语义分析。是用flask Socket实现的
+<h5>本示例使用sqlite存储不同用户的聊天记录，使gemini能够理解以前的聊天记录，实现上下文的语义分析。是用flask Socket实现的</h5>
 ==================================
 python 10及以上<br>
 sudo apt update<br>
