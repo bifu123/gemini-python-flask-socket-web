@@ -11,8 +11,11 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   <!-- 引用 Socket.IO 客户端库 -->
   <script src="{{ url_for('static', filename='socket.io.js') }}"></script>
-  <!-- 引用 markdown 库 -->
-  <!-- <script src="<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script> -->
+
+  <!-- 引用 prism CSS 文件-->
+  <!--<link rel="stylesheet" href="{{ url_for('static', filename='prism.css') }}">-->
+  <!--=引用 prism js  -->
+  <!--<script src="{{ url_for('static', filename='prism.js') }}"></script> -->
 
 </head>
 
@@ -21,8 +24,8 @@
   <div class="container">
     <div id="tile_block">
       <h1>
-        <span class="title_font">和</span> 
-        <span id="gemini">gemini</span> 
+        <span class="title_font">和</span>
+        <span id="gemini">gemini</span>
         <span class="title_font">交流</span>
       </h1>
     </div>
@@ -40,7 +43,8 @@
       </div>
       <input id="phoneNumber" type="hidden">
       <div class="col-md-2 text-end" style="margin-top: 5px;">
-        <button onclick="sendMessageToServer()" class="btn btn-primary">发送</button>
+        <!-- <button id="sand_button" onclick="sendMessageToServer()" class="btn btn-primary">发送</button> -->
+        <input type="button" id="sand_button" onclick="sendMessageToServer()" class="btn btn-primary" value="发送">
       </div>
     </div>
 
@@ -69,6 +73,8 @@
   </div>
   <script src="{{ url_for('static', filename='index.js') }}"></script>
   <script src="{{ url_for('static', filename='bootstrap.bundle.min.js') }}"></script>
+  <!-- 引用 markdown 库 -->
+  <!-- <script src="{{ url_for('static', filename='marked.min.js') }}"></script> -->
 </body>
 
 </html>

@@ -90,7 +90,7 @@ def replace_html_tags(match):
     content = content.replace('<', '&lt;').replace('>', '&gt;')
     return content
 
-# 使用正则表达式替换
+# 使用正则表达式替换html中瑕疵
 def replace_match_html(html_code):
     result = re.sub(r'```html.*?```', replace_html_tags, html_code, flags=re.DOTALL)
     result = result.replace("<p>```html&lt;/p&gt;","<p>```html</p>")
@@ -98,5 +98,16 @@ def replace_match_html(html_code):
     result = "<pre><code>"+result+"</code></pre>"
     return result
 
-
-
+# # 定义源代码类型，以便于高亮显示
+# def add_code_language_targe(source_code):
+#     result_code_type = '<code>'
+#     # 定义正则表达式模式
+#     pattern = re.compile(r'```(\w+)')
+#     # 在HTML代码中搜索匹配项
+#     match = pattern.search(source_code)
+#     # 获取匹配到的结果
+#     if match:
+#         first_word_after_backticks = match.group(1)
+#         result_code_type = '<code class="language-' + first_word_after_backticks + '">'
+#     source_code = source_code.replace('<code>',result_code_type)
+#     return source_code

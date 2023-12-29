@@ -5,12 +5,20 @@
     display: flex;
     flex-direction: column;
     font-family: "SanFrancisco";
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     margin: 0 auto 1rem;
     max-width: 100%;
     padding: 0.5rem 1.5rem;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    /* 设置透明度为 0.5（50% 不透明） */
+    /* opacity: 0.97; */
+    /* 鼠标悬停时增加透明度，实现渐变效果 */
 }
+
+/* 鼠标悬停时增加透明度，实现渐变效果 */
+/* .imessage:hover {
+    opacity: 1;
+} */
 
 .imessage p {
     border-radius: 1.15rem;
@@ -139,7 +147,7 @@ body {
         sans-serif;
     font-weight: normal;
     margin: 0;
-    background-color: rgb(218, 218, 218);
+    /* background-color: rgb(218, 218, 218); */
 
     /* 设置背景图片 */
     background-size: cover;
@@ -191,7 +199,7 @@ h2 {
     }
 
     .imessage {
-        font-size: 1.05rem;
+        font-size: 1.25rem;
         margin: 0 auto 1rem;
         max-width: 600px;
         padding: 0.25rem 0.875rem;
@@ -213,7 +221,13 @@ h2 {
     border: 1px solid #e5e5ea;
     border-radius: 0.5rem;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    padding-bottom: 2px;
+    /* opacity: 0.97; */
 }
+
+/* #userInputContainer:hover {
+    opacity: 1;
+} */
 
 #userInput {
     background-color: #fff;

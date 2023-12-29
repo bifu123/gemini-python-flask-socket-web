@@ -8,11 +8,11 @@
 
 from flask import Flask, render_template
 from flask_socketio import SocketIO, emit
-import markdown
 from dal import *
 from datetime import datetime
 import json
 import re
+import markdown
 
 app = Flask(__name__)
 socketio = SocketIO(app)
@@ -50,13 +50,17 @@ def handle_message(data):
     chat_data = chat(content,messages)
     messages = chat_data[0]
     response = chat_data[1]
-    # print('===========markdown code :===============')
-    # 使用Markdown转化成html代码
-    response = markdown.markdown(response) 
+    # print('===========response:===============')
     # print(response)
+    # 使用markdown渲染
+    response = markdown.markdown(response)
     # print('===========re replace code :===============')
     # 防止html源代码被解析
     response = replace_match_html(response)
+
+    # 代码高亮
+    # response = add_code_language_targe(response)
+    # response = response.replace("```","")
     # print(response)
 
     #防止聊天记录过大，gemini上限是32K上下文

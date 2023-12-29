@@ -65,6 +65,9 @@ socket.on('message_from_server', function (data) {
     messageElement.innerHTML = messageText;
     //messageElement.textContent = messageText;
     messageContainer.appendChild(messageElement);
+    //启用发送按钮
+    document.getElementById('sand_button').disabled = false;
+    document.getElementById('sand_button').value = '发送'
 });
 
 // 处理客户端发送的消息
@@ -76,6 +79,9 @@ function localUserMessage(userInput) {
     //userMessageElement.innerHTML = userInput;
     userMessageElement.textContent = userInput;
     messageContainer.appendChild(userMessageElement);
+    //禁用发送按钮
+    document.getElementById('sand_button').disabled = true;
+    document.getElementById('sand_button').value = '等待...'
 }
 
 // 发送消息给服务器
