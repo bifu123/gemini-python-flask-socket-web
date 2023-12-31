@@ -270,3 +270,7 @@ pre {
 #tile_block {
     margin-left: 20px;
 }
+
+.select_parent {
+    font-size: 1rem;
+}

@@ -57,6 +57,12 @@ def handle_message(data):
     # print('===========re replace code :===============')
     # 防止html源代码被解析
     response = replace_match_html(response)
+    # 增加全选按钮
+    txt_select_all = '''
+    <input type="button" class="text-right select_parent" value="全选本答案" onclick="selectText(this)">
+    '''
+    response = response + txt_select_all
+
 
     # 代码高亮
     # response = add_code_language_targe(response)

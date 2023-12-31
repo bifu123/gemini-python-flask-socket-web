@@ -109,3 +109,20 @@ function sendMessageToServer() {
         }
     });
 }
+
+//全选model回答
+function selectText(button) {
+    var parentParagraph = button.closest('.from-them');
+    
+    // 创建一个 Range 对象
+    var range = document.createRange();
+    
+    // 选择文本范围
+    range.selectNode(parentParagraph);
+    
+    // 清除所有之前的选择
+    window.getSelection().removeAllRanges();
+    
+    // 将新的范围添加到选择中
+    window.getSelection().addRange(range);
+}
