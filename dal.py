@@ -4,6 +4,7 @@ from datetime import datetime
 import google.generativeai as genai
 import json
 import re
+import os
 
 
 #从配置文件中获取GEMINI_API_KEY
@@ -16,6 +17,7 @@ def write_content_by_wxid(wxid,content=''):
     try:
         user_data_dic = {'wxid': wxid, 'content': content, 'update_time': update_time}
         conn = sqlite3.connect('gemini.db')
+        os.chmod('gemini.db', 0o777)
         cursor = conn.cursor()
         cursor.execute('''
             CREATE TABLE IF NOT EXISTS users (
@@ -98,16 +100,3 @@ def replace_match_html(html_code):
     result = "<pre><code>"+result+"</code></pre>"
     return result
 
-# # 定义源代码类型，以便于高亮显示
-# def add_code_language_targe(source_code):
-#     result_code_type = '<code>'
-#     # 定义正则表达式模式
-#     pattern = re.compile(r'```(\w+)')
-#     # 在HTML代码中搜索匹配项
-#     match = pattern.search(source_code)
-#     # 获取匹配到的结果
-#     if match:
-#         first_word_after_backticks = match.group(1)
-#         result_code_type = '<code class="language-' + first_word_after_backticks + '">'
-#     source_code = source_code.replace('<code>',result_code_type)
-#     return source_code

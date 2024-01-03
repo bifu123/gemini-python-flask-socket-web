@@ -11,7 +11,6 @@ from flask_socketio import SocketIO, emit
 from dal import *
 from datetime import datetime
 import json
-import re
 import markdown
 
 app = Flask(__name__)
@@ -57,17 +56,13 @@ def handle_message(data):
     # print('===========re replace code :===============')
     # 防止html源代码被解析
     response = replace_match_html(response)
+    # print(response)
+
     # 增加全选按钮
     txt_select_all = '''
     <input type="button" class="text-right select_parent" value="全选本答案" onclick="selectText(this)">
     '''
     response = response + txt_select_all
-
-
-    # 代码高亮
-    # response = add_code_language_targe(response)
-    # response = response.replace("```","")
-    # print(response)
 
     #防止聊天记录过大，gemini上限是32K上下文
     messages_byte_count = str(messages).encode('utf-8')
@@ -79,9 +74,7 @@ def handle_message(data):
     # print('The new messages type is:'+str(type(messages))+'and length is:'+str(len(messages)))
 
     # 更新到数据库
-    #messages_todb = str(messages).replace("'",'"')
-    #将list转换成单引号的JSON
-    if len(messages) > 0 :
+    if len(messages) > 0 and len(wxid) > 0:
         content = json.dumps(messages, ensure_ascii=False)
         update_content_by_wxid(wxid, content)
 
