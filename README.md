@@ -10,7 +10,7 @@ pip3 install -U flask flask_socketio google.generativeai markdown<br>
 ==================================<br>
 <li> 一、将申请来的gemini api key填入config.py里<br></li>
 <li> 二、python3 app.py如访问http://192.168.65.23:5001</li>
-## 2024-1-22更新
+<h3>2024-1-22更新</h3>
 添加了聊天返回API，
 如：
 http://192.168.65.23:5001/chat?wxid=cbf_41513522%content=hello
